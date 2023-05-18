@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <clipPath id="clip-Icon_Home">
+      <rect width="26" height="26"/>
+    </clipPath>
+  </defs>
+  <g id="Icon_Home" data-name="Icon Home" clip-path="url(#clip-Icon_Home)">
+    <rect width="26" height="26" fill="#fff"/>
+    <g id="Group_208" data-name="Group 208" transform="translate(-40.667 -759.74)" opacity="0.5">
+      <path id="Path_1" data-name="Path 1" d="M22.274,12.255,11.712.223a.655.655,0,0,0-.976-.01L.175,11.7A.656.656,0,0,0,0,12.145V23.634a.657.657,0,0,0,.656.656H7.892a.657.657,0,0,0,.656-.656v-4.3a2.7,2.7,0,1,1,5.4,0v4.3a.657.657,0,0,0,.656.656h7.175a.657.657,0,0,0,.656-.656V12.688A.646.646,0,0,0,22.274,12.255Zm-1.147,10.72H15.264V19.336a4.014,4.014,0,0,0-8.028,0v3.642H1.312V12.4l9.9-10.762,9.919,11.3Z" transform="translate(41.667 760.74)" fill="red"/>
+    </g>
+  </g>
+</svg>

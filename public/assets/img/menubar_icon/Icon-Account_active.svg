@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <clipPath id="clip-Icon_Account">
+      <rect width="26" height="26"/>
+    </clipPath>
+  </defs>
+  <g id="Icon_Account" data-name="Icon Account" clip-path="url(#clip-Icon_Account)">
+    <rect width="26" height="26" fill="#fff"/>
+    <g id="XMLID_1_" transform="translate(3 3)">
+      <g id="XMLID_2_" opacity="0.5">
+        <g id="XMLID_4_" transform="translate(4.761)">
+          <path id="Path_8" data-name="Path 8" d="M22.363,9.869A4.934,4.934,0,1,1,27.3,4.933,4.938,4.938,0,0,1,22.363,9.869Zm0-8.76a3.824,3.824,0,1,0,3.824,3.824A3.828,3.828,0,0,0,22.363,1.109Z" transform="translate(-17.43)" fill="red"/>
+        </g>
+        <g id="XMLID_3_" transform="translate(0 11.043)">
+          <path id="Path_9" data-name="Path 9" d="M18.831,49.916a.555.555,0,0,1-.554-.554,7.833,7.833,0,0,0-7.823-7.823H8.932a7.833,7.833,0,0,0-7.823,7.823.554.554,0,1,1-1.109,0A8.942,8.942,0,0,1,8.932,40.43h1.524a8.942,8.942,0,0,1,8.932,8.932A.557.557,0,0,1,18.831,49.916Z" transform="translate(0 -40.43)" fill="red"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
