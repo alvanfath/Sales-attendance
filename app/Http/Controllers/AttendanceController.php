@@ -16,7 +16,7 @@ class AttendanceController extends Controller
 
         $exist = false;
         if ($attendance) {
-            $in_time = Carbon::parse($attendance->in_time)->addHours(1);
+            $in_time = Carbon::parse($attendance->in_time)->addHours(8);
             $out_time = Carbon::parse($attendance->in_time)->addHours(1);
             if (Carbon::now() > $in_time) {
                 $attendance->update([
@@ -65,7 +65,7 @@ class AttendanceController extends Controller
 
         return $image;
     }
-    
+
     public function imageName(){
         $user = Auth::user();
         $date = date("Ymd_his");
