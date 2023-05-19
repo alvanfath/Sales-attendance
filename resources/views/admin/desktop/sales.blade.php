@@ -212,7 +212,7 @@
                     var name = response.name;
                     var data = response.data;
                     var htmlView = ''
-                    var noResponse = '<tr><td colspan="7" class="text-center">Tidak ada data</td></tr>'
+                    var noResponse = '<tr><td colspan="8" class="text-center">Tidak ada data</td></tr>'
                     $('#absence-modal').modal('show')
                     $('#title-absence-modal').text('Laporan ' + name)
                     $('#total-report').text('Total laporan : ' + data.length)
