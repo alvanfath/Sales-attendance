@@ -12,7 +12,7 @@ class AttendanceController extends Controller
     public function createAttendance(){
         $user = Auth::user();
         $today = Carbon::today()->toDateString();
-        $attendance = Absensi::where('sales_id', $user->id)->where('out_time', null)->latest()->first();
+        $attendance = Absensi::where('sales_id', $user->id)->where('out_time', null)->whereDate('in_time', $today)->latest()->first();
 
         $exist = false;
         if ($attendance) {
@@ -20,7 +20,6 @@ class AttendanceController extends Controller
             $out_time = Carbon::parse($attendance->in_time)->addHours(1);
             if (Carbon::now() > $in_time) {
                 $attendance->update([
-                    'last_location' => $attendance->location,
                     'out_time' => $out_time
                 ]);
                 return redirect()->route('absence');

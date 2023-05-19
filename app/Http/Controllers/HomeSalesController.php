@@ -10,7 +10,7 @@ class HomeSalesController extends Controller
 {
     public function home(){
         $user = Auth::user();
-        $data = Absensi::with('sales')->where('sales_id', $user->id)->paginate(5);
+        $data = Absensi::with('sales')->where('sales_id', $user->id)->orderBy('in_time', 'DESC')->paginate(5);
         $total = Absensi::where('sales_id', $user->id)->count();
         return view('home', compact('user','data','total'));
     }
