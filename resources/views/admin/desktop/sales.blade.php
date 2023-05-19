@@ -109,6 +109,7 @@
                                     <th>No telepon</th>
                                     <th>Total Laporan</th>
                                     <th>Aksi</th>
+                                    <th>Laporan Bulanan</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -136,6 +137,7 @@
                                                         class="fa fa-trash"></i></button>
                                             </form>
                                         </td>
+                                        <td><a class="btn btn-dark btn-sm" href="{{route('admin.desktop.sales.absence-monthly', $item->id)}}">Lihat</a></td>
                                     </tr>
                                 @empty
                                     <tr>

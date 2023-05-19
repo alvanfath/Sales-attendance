@@ -44,6 +44,7 @@
                 <div class="card-body">
                         @forelse ($topSales as $item)
                             <span>{{$loop->iteration}}. <b>{{$item->sales->name}}  ({{$item->total}} laporan)</b></span>
+                            <br>
                         @empty
                             <span>Tidak ada sales paling aktif</span>
                         @endforelse

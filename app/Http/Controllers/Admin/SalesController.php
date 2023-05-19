@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Absensi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\Admin\HomeController;
 
 class SalesController extends Controller
 {
@@ -72,5 +75,66 @@ class SalesController extends Controller
             return back()->with('success', 'Berhasil menghapus');
         }
         return back()->with('error', 'Data tidak ditemukan');
+    }
+
+    public function monthly($id){
+        $user = User::where('id', $id)->where('role', 'sales')->firstOrFail();
+        $absence = Absensi::where('sales_id', $id)->select(DB::raw('DATE(in_time) as date'), DB::raw('COUNT(*) as total'))->groupBy(DB::raw('DATE(in_time)'))->get();
+        $currentMonth = Carbon::now()->month;
+        $currentYear = Carbon::now()->year;
+        $totalDays = Carbon::create($currentYear, $currentMonth)->daysInMonth;
+        $dates = [];
+        for ($day = 1; $day <= $totalDays; $day++) {
+            $date = Carbon::create($currentYear, $currentMonth, $day)->format('Y-m-d');
+            $dates[] = $date;
+        }
+        $result = [];
+        foreach ($dates as $item) {
+            $total = 0;
+            foreach ($absence as $row) {
+                if ($row->date == $item) {
+                    $total = $row->total;
+                }
+            }
+            $result[] = [
+                'date' => $item,
+                'total' => $total
+            ];
+        }
+        $get_month = new  HomeController;
+        $month = $get_month->month();
+        return view('admin.desktop.monthly', compact('result', 'user', 'month', 'currentMonth'));
+    }
+
+    public function getMonthly(Request $request){
+        $request->validate([
+            'id' => 'required',
+            'month' => 'required'
+        ]);
+        $user = User::where('id', $request->id)->where('role', 'sales')->firstOrFail();
+        $absence = Absensi::where('sales_id', $request->id)->select(DB::raw('DATE(in_time) as date'), DB::raw('COUNT(*) as total'))->groupBy(DB::raw('DATE(in_time)'))->get();
+        $currentMonth = $request->month;
+        $currentYear = Carbon::now()->year;
+        $totalDays = Carbon::create($currentYear, $currentMonth)->daysInMonth;
+        $dates = [];
+        for ($day = 1; $day <= $totalDays; $day++) {
+            $date = Carbon::create($currentYear, $currentMonth, $day)->format('Y-m-d');
+            $dates[] = $date;
+        }
+        $result = [];
+        foreach ($dates as $item) {
+            $total = 0;
+            foreach ($absence as $row) {
+                if ($row->date == $item) {
+                    $total = $row->total;
+                }
+            }
+            $result[] = [
+                'date' => date('d F Y', strtotime($item)),
+                'total' => $total
+            ];
+        }
+
+        return $result;
     }
 }

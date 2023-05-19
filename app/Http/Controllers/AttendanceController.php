@@ -12,13 +12,13 @@ class AttendanceController extends Controller
     public function createAttendance(){
         $user = Auth::user();
         $today = Carbon::today()->toDateString();
-        $attendance = Absensi::where('sales_id', $user->id)->whereDate('in_time', $today)->where('out_time', null)->latest()->first();
+        $attendance = Absensi::where('sales_id', $user->id)->where('out_time', null)->latest()->first();
 
         $exist = false;
         if ($attendance) {
-            $in_time = Carbon::parse($attendance->in_time)->addHours(8);
+            $in_time = Carbon::parse($attendance->in_time)->addHours(1);
             $out_time = Carbon::parse($attendance->in_time)->addHours(1);
-            if (Carbon::now()->greaterThan($in_time)) {
+            if (Carbon::now() > $in_time) {
                 $attendance->update([
                     'last_location' => $attendance->location,
                     'out_time' => $out_time
@@ -65,7 +65,7 @@ class AttendanceController extends Controller
 
         return $image;
     }
-
+    
     public function imageName(){
         $user = Auth::user();
         $date = date("Ymd_his");

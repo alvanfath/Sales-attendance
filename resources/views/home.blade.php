@@ -27,7 +27,7 @@
                     <tbody>
                         @forelse ($data as $item)
                             @php
-                                $time = \Carbon\Carbon::parse($item->absence_time);
+                                $time = \Carbon\Carbon::parse($item->in_time);
                                 $maxLength = 20; // Maximum length of the string
 
                                 $str = $item->place_name;

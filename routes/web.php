@@ -66,6 +66,8 @@ Route::middleware('auth')->group(function () {
             Route::delete('sales/destroy/{id}', [SalesController::class, 'destroy'])->name('sales.destroy');
             Route::get('sales/absence/{id}', [SalesController::class, 'absence'])->name('sales.absence');
 
+            Route::get('sales/absence-month/{id}', [SalesController::class, 'monthly'])->name('sales.absence-monthly');
+            Route::get('sales/get-monthly', [SalesController::class, 'getMonthly'])->name('sales.get-monthly');
             //profile
             Route::get('my-profile', [ProfileController::class, 'profileDesktop'])->name('my-profile');
         });
