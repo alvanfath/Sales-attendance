@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('place_name');
             $table->string('last_location')->nullable();
             $table->timestamps();
-            $table->foreign('sales_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

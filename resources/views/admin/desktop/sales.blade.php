@@ -253,7 +253,7 @@
                             var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
 
                             console.log("Time Range:", );
-                            var image = '{{ asset('storage/absence') }}' + '/' + data[i].image;
+                            var image = '{{ asset('absence') }}' + '/' + data[i].image;
                             if (data[i].last_location == null) {
                                 lastLoc = 'Belum input absen keluar';
                                 outTime = 'Belum input absen keluar';

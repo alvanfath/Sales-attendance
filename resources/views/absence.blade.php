@@ -52,7 +52,7 @@
                     </div>
                     <div class="card-body">
                         <div class="d-flex justify-content-center  mb-3">
-                            <img src="{{ asset('storage/absence/' . $attendance->image) }}" width="100%" height="auto"
+                            <img src="{{ asset('absence/' . $attendance->image) }}" width="100%" height="auto"
                                 class="rounded" alt="">
                         </div>
                         <div class="row">

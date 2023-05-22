@@ -34,8 +34,8 @@ Route::middleware('auth')->group(function () {
     //sales
     Route::middleware('sales')->group(function () {
         Route::get('home', [HomeSalesController::class, 'home'])->name('home');
-        Route::get('absence', [AttendanceController::class,'createAttendance'])->name('absence');
-        Route::post('absence', [AttendanceController::class, 'storeAttendance'])->name('store-attendance');
+        Route::get('absences', [AttendanceController::class,'createAttendance'])->name('absence');
+        Route::post('absences', [AttendanceController::class, 'storeAttendance'])->name('store-attendance');
         Route::get('get-detail/{id}', [AttendanceController::class, 'getDetail'])->name('get-detail');
         Route::put('update-att/{id}', [AttendanceController::class, 'update'])->name('update-att');
         Route::get('my-profile', function () {

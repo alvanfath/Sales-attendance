@@ -43,7 +43,15 @@ class AttendanceController extends Controller
         ]);
         $image = $this->getImage($request->image);
         $image_name = $this->imageName();
-        \Storage::disk('public')->put('absence' . '/' . $image_name, $image);
+        $folder = 'absence';
+        $path = public_path($folder);
+        if (!file_exists($path)) {
+            mkdir($path, 0777, true);
+        }
+
+        $file_path = $path . '/' . $image_name;
+
+        file_put_contents($file_path, $image);
 
         $location_link = 'https://maps.google.com/maps?q=' . $request->lat . ',' . $request->long;
         Absensi::create([

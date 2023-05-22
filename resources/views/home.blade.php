@@ -124,7 +124,7 @@
                         second: "numeric",
                         hour12: false,
                     });
-                    var image = '{{ asset('storage/absence/') }}' + '/' + response.image;
+                    var image = '{{ asset('absence/') }}' + '/' + response.image;
 
                     var place = response.place_name
                     const maxLength = 20;
